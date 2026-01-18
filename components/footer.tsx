@@ -15,11 +15,27 @@ export function Footer() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Subscribe:", { name, email })
-    setName("")
-    setEmail("")
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+      })
+      const data = await response.json()
+      if (data.status === 'success') {
+        console.log('Success:', data)
+        setName("")
+        setEmail("")
+      } else {
+        console.error('Error:', data.message)
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
   }
 
   return (
