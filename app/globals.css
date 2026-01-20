@@ -113,7 +113,7 @@
   /* Custom prose styling for premium article typography */
   .prose {
     @apply text-foreground;
-    max-width: 65ch;
+    max-width: none;
   }
 
   .prose h1 {
@@ -167,9 +167,11 @@
     font-style: italic;
   }
 
-  .prose ul,
+    .prose ul {
+      @apply my-6 space-y-2 list-disc pl-6;
+    }
   .prose ol {
-    @apply my-6 space-y-2;
+    @apply my-6 space-y-2 list-decimal pl-6;
   }
 
   .prose li {
@@ -183,4 +185,24 @@
   .prose hr {
     @apply border-border my-12;
   }
+/* Table styles */
+.prose table {
+  @apply w-full my-8 border-collapse overflow-hidden rounded-lg;
+}
+
+.prose thead {
+  @apply bg-muted;
+}
+
+.prose th {
+  @apply border border-border px-4 py-3 text-left font-semibold text-foreground;
+}
+
+.prose td {
+  @apply border border-border px-4 py-3 text-foreground/90;
+}
+
+.prose tr:hover {
+  @apply bg-muted/50;
+}
 }

@@ -42,14 +42,13 @@ export function Footer() {
     <footer className="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#010409] text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 py-20 md:px-6 flex flex-col items-center">
         <div className="w-full grid gap-12 md:grid-cols-3">
-          {/* Column 1: Logo and description */}
           <div>
             <Link href="/" className="flex items-center gap-3 group">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-500/20 transition-all duration-300 group-hover:scale-110">
                 <span className="text-xl font-bold text-white">TV</span>
               </div>
               <span className="font-serif text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-400 to-violet-600 bg-clip-text text-transparent">
-                TechVista
+                MoliSchola
               </span>
             </Link>
             <p className="mt-4 text-sm text-slate-600 dark:text-slate-400 text-pretty leading-relaxed">
@@ -57,12 +56,11 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Column 2: Connect with social icons */}
           <div>
             <h3 className="mb-4 font-semibold text-slate-900 dark:text-slate-100">{t("footer.connect")}</h3>
             <div className="flex flex-col gap-3">
               <a
-                href="https://portfolio.example.com"
+                href="https://alejandromoli.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors group"
@@ -73,7 +71,7 @@ export function Footer() {
                 <span>Portfolio</span>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/ELmoliii"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors group"
@@ -84,7 +82,7 @@ export function Footer() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/alex-moli/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors group"
@@ -97,7 +95,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Newsletter signup */}
           <div>
             <h3 className="mb-4 font-semibold text-slate-900 dark:text-slate-100">{t("footer.newsletter")}</h3>
             <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">{t("footer.newsletterDesc")}</p>
@@ -130,10 +127,7 @@ export function Footer() {
 
         <div className="w-full mt-16 border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
           <p>
-            © {currentYear} TechVista. {t("footer.rights")}.
-          </p>
-          <p className="flex items-center gap-1">
-            {t("footer.builtWith")} <span className="text-primary font-semibold">v0</span> by Vercel
+            © {currentYear} Alejandro Molinero. {t("footer.rights")}.
           </p>
         </div>
       </div>

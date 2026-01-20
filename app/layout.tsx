@@ -10,10 +10,10 @@ const _inter = Inter({ subsets: ["latin"] })
 const _crimsonPro = Crimson_Pro({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TechVista Blog - IT & Technology Insights",
+  title: "MoliSchola Blog - Un blog de tecnologia",
   description:
-    "Explore the latest in AI, technology trends, and digital innovation. Bilingual tech blog covering artificial intelligence, software development, and the future of technology.",
-  generator: "v0.app",
+    "Un blog de tecnologia para que todos aprendamos juntos sobre inteligencia artificial, desarrollo de software y el futuro de la tecnologia.",
+  generator: "MoliSchola",
   icons: {
     icon: [
       {
@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={`font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
           <LanguageProvider>{children}</LanguageProvider>

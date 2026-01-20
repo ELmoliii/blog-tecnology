@@ -37,10 +37,10 @@ export function Header({ searchQuery = "", onSearchChange }: HeaderProps) {
         <div className="flex h-16 items-center justify-between gap-4 px-4 md:px-8">
           <Link href="/" className="flex items-center gap-3 group shrink-0">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-500/30 transition-all duration-300 group-hover:scale-110 group-hover:shadow-indigo-500/50">
-              <span className="text-xl font-bold text-white">TV</span>
+              <span className="text-xl font-bold text-white">MS</span>
             </div>
             <span className="hidden sm:inline font-serif text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-400 to-violet-600 bg-clip-text text-transparent">
-              TechVista
+              MoliSchola
             </span>
           </Link>
 
@@ -88,7 +88,7 @@ export function Header({ searchQuery = "", onSearchChange }: HeaderProps) {
                 asChild
                 className="rounded-xl h-9 w-9 transition-all duration-300 hover:bg-primary/10 hover:text-primary"
               >
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/ELmoliii" target="_blank" rel="noopener noreferrer">
                   <Github className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
                 </a>
@@ -99,7 +99,7 @@ export function Header({ searchQuery = "", onSearchChange }: HeaderProps) {
                 asChild
                 className="rounded-xl h-9 w-9 transition-all duration-300 hover:bg-primary/10 hover:text-primary"
               >
-                <a href="https://portfolio.example.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://alejandromoli.vercel.app/" target="_blank" rel="noopener noreferrer">
                   <Globe className="h-4 w-4" />
                   <span className="sr-only">Portfolio</span>
                 </a>

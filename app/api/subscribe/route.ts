@@ -8,12 +8,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ status: 'error', message: 'Name and email are required' }, { status: 400 })
     }
 
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwYPXNcJZD3mrYHmzsrkVb_bVkPWFvZC2g9uFtF26Gt314m4wT818CicqR0IeWuaIfuhw/exec', {
+    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL
+    const API_SECRET = process.env.API_SECRET
+
+    if (!GOOGLE_SCRIPT_URL || !API_SECRET) {
+      console.error('Missing environment variables for newsletter')
+      return NextResponse.json({ status: 'error', message: 'Configuration error' }, { status: 500 })
+    }
+
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, secret: 'techvista_secret_2025' }),
+      body: JSON.stringify({ name, email, secret: API_SECRET }),
     })
 
     const data = await response.json()

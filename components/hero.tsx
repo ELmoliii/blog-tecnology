@@ -12,7 +12,7 @@ export function Hero() {
         <div className="mx-auto max-w-4xl w-full">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-sm">
             <Sparkles className="h-4 w-4 text-accent" />
-            <span className="text-muted-foreground">AI & Technology Insights</span>
+            <span className="text-muted-foreground">Aprende con la tecnología</span>
           </div>
           <h1 className="font-serif text-4xl font-bold tracking-tight text-balance md:text-6xl lg:text-7xl text-center mx-auto w-full">
             {t("hero.title")}
