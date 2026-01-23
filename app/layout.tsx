@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`font-sans antialiased`}>
+      <body className={`font-sans antialiased overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>

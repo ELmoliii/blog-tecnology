@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Calendar, Clock } from "lucide-react"
 import type { Post } from "@/lib/markdown"
 import { useLanguage } from "@/lib/language-context"
+import { Mermaid } from "@/components/mermaid"
 import ReactMarkdown from "react-markdown"
 
 import remarkGfm from "remark-gfm"
@@ -80,21 +81,36 @@ export default function ArticlePage() {
                   {post.description}
                 </p>
 
-                {/* Mobile Metadata (Hidden on Desktop) */}
-                <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground lg:hidden border-t pt-6">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString(post.lang === "es" ? "es-ES" : "en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <span>{post.readTime}</span>
+                {/* Metadata Section - Moved from Sidebar */}
+                <div className="flex flex-col md:flex-row gap-6 items-start md:items-center mt-8 pt-8 border-t border-border/50">
+                  <div className="rounded-xl border bg-card/50 p-6 shadow-sm flex flex-col sm:flex-row gap-6 w-full md:w-auto">
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="p-2 rounded-full bg-muted">
+                        <Calendar className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-foreground text-xs uppercase tracking-wider">{t("article.published")}</p>
+                        <time dateTime={post.date} className="font-semibold text-foreground">
+                          {new Date(post.date).toLocaleDateString(post.lang === "es" ? "es-ES" : "en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </time>
+                      </div>
+                    </div>
+
+                    <div className="hidden sm:block w-px bg-border h-10"></div>
+
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="p-2 rounded-full bg-muted">
+                        <Clock className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                         <p className="font-medium text-foreground text-xs uppercase tracking-wider">{t("article.readTime")}</p>
+                         <span className="font-semibold text-foreground">{post.readTime}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -103,7 +119,7 @@ export default function ArticlePage() {
 
           {/* Content Grid */}
           <div className="container mx-auto px-4 py-12 max-w-screen-xl">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 xl:gap-24">
+            <div className="max-w-4xl mx-auto">
               {/* Main Content */}
               <div className="min-w-0">
                 <div className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:font-bold max-w-none">
@@ -128,7 +144,7 @@ export default function ArticlePage() {
                            }
                          }
 
-                         return (
+                        return (
                           <div className="relative rounded-lg overflow-hidden my-6 border bg-[#282c34]">
                             <div className="flex items-center px-4 py-2 bg-muted/20 border-b">
                               <div className="flex gap-2">
@@ -150,11 +166,12 @@ export default function ArticlePage() {
                       },
                       code: ({node, className, children, ...props}: any) => {
                         const match = /language-(\w+)/.exec(className || '')
-                        // If it has a language, it's likely a block (inside pre), so we keep it simple.
-                        // If no language, likely inline, so we add pill styles.
-                        // This logic isn't perfect but covers most cases without breaking hydration.
                         const isMatch = !!match
                         
+                        if (match && match[1] === 'mermaid') {
+                           return <Mermaid chart={String(children).replace(/\n$/, '')} />
+                        }
+
                         return (
                           <code 
                             className={`${className} ${!isMatch ? "bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary" : ""}`} 
@@ -163,46 +180,18 @@ export default function ArticlePage() {
                             {children}
                           </code>
                         )
-                      }
+                      },
+                      table: ({children, ...props}) => (
+                        <div className="w-full overflow-x-auto my-8 rounded-lg border bg-card">
+                          <table className="w-full border-collapse min-w-full" {...props}>
+                            {children}
+                          </table>
+                        </div>
+                      )
                     }}
                   >
                     {post.content}
                   </ReactMarkdown>
-                </div>
-              </div>
-
-              {/* Sidebar Metadata (Hidden on Mobile) */}
-              <div className="hidden lg:block space-y-8 lg:sticky lg:top-24 h-fit">
-                <div className="rounded-xl border bg-card p-6 shadow-sm space-y-6">
-                  <h3 className="font-serif text-lg font-semibold border-b pb-4">Article Details</h3>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <div className="p-2 rounded-full bg-muted">
-                        <Calendar className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-foreground">{t("article.published")}</p>
-                        <time dateTime={post.date}>
-                          {new Date(post.date).toLocaleDateString(post.lang === "es" ? "es-ES" : "en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </time>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <div className="p-2 rounded-full bg-muted">
-                        <Clock className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                         <p className="font-medium text-foreground">{t("article.readTime")}</p>
-                         <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
