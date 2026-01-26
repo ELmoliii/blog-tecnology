@@ -19,8 +19,8 @@ Esta extensión nace como una respuesta de ingeniería a ese problema. Hemos dis
 
 Las herramientas online tradicionales presentan dos fallos sistémicos:
 
-1.  **Baja Entropía:** El uso de algoritmos rápidos pero predecibles facilita que un atacante adivine patrones.
-2.  **Exposición de Datos (Data Exposure):** Al generar la clave en un servidor remoto, esta debe viajar por internet hasta tu pantalla.
+1. **Baja Entropía:** El uso de algoritmos rápidos pero predecibles facilita que un atacante adivine patrones.
+2. **Exposición de Datos (Data Exposure):** Al generar la clave en un servidor remoto, esta debe viajar por internet hasta tu pantalla.
 
 Aquí visualizamos el flujo inseguro de una web tradicional:
 
@@ -87,12 +87,11 @@ Si el rango de números aleatorios no es un múltiplo exacto de los caracteres d
 Para solucionarlo, implementamos un algoritmo de **Rejection Sampling** (Muestreo de Rechazo):
 
 ```mermaid
-graph TD
+graph LR
     B[Calcular Limite Seguro] --> C[Generar Aleatorio]
     C --> D{¿Es Seguro?}
     D -- SI --> E[Aplicar Modulo]
     D -- NO --> C
-
 ```
 
 > **Modulo Bias (Sesgo de Módulo)**
@@ -134,3 +133,24 @@ La seguridad no es solo el algoritmo, es el entorno.
 Sustituir la conveniencia de la nube por la robustez de la ejecución local es necesario en el entorno actual. Este generador demuestra que es posible crear herramientas cotidianas que respeten la **Soberanía Digital** del usuario: código transparente, ejecución local y matemáticas seguras.
 
 ---
+
+## 6. Recursos y Documentación Técnica
+
+Para auditar el código o profundizar en los conceptos de seguridad mencionados, consulta las siguientes fuentes oficiales:
+
+### 📚 Referencias
+
+* **Aleatoriedad Criptográfica:** [MDN Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+* **Estándares de Seguridad:** [NIST: Random Bit Generation](https://csrc.nist.gov/projects/random-bit-generation)
+* **Vulnerabilidades Web:**
+  * [OWASP: Man-in-the-Middle Attacks](https://owasp.org/www-community/attacks/Man-in-the-middle_attack)
+  * [OWASP: Supply Chain Attacks](https://owasp.org/www-project-top-10/2021/A06_2021-Vulnerable_and_Outdated_Components/)
+* **Matemáticas:** [Understanding Modulo Bias (Cryptography StackExchange)](https://crypto.stackexchange.com/questions/394/how-much-bias-is-introduced-by-the-remainder-technique)
+
+---
+
+### 💻 Código Fuente y Descarga
+
+Creemos en la transparencia total. Este proyecto es de código abierto bajo licencia MIT.
+
+[**Ver Repositorio en GitHub**](https://github.com/TU_USUARIO/TU_REPO) | [**Descargar Extensión**](https://github.com/TU_USUARIO/TU_REPO)

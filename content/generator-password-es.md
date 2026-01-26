@@ -1,11 +1,12 @@
 ---
-title: "Arquitectura de Seguridad: Diseño de un Generador de Credenciales Offline"
-description: "Análisis técnico de una extensión basada en CSPRNG, Zero-Knowledge y Manifest V3."
-date: "2025-01-19"
-category: "Cybersecurity & Engineering"
-slug: "secure-password-generator-architecture"
+title: "Generador de Contraseñas Offline y Seguro"
+description: "Cómo diseñar un generador de claves privado. Arquitectura Zero-Knowledge, Client-Side y CSPRNG sin servidores."
+date: "2025-01-20"
+category: "Ciberseguridad"
+slug: "arquitectura-generador-contrasenas"
 translationKey: "generator-password"
 lang: "es"
+tags: ["Criptografía", "Privacidad", "Seguridad Web", "Manifest V3"]
 ---
 
 ## 1. Introducción: Hacia la Soberanía de la Identidad Digital
