@@ -140,7 +140,7 @@ Replacing the convenience of the cloud with the robustness of local execution is
 To audit the code or delve deeper into the security concepts mentioned, consult the following official sources:
 
 * **Cryptography:** [MDN Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) | [NIST Random Bit Generation](https://csrc.nist.gov/projects/random-bit-generation)
-* **Security and Threats:** [OWASP MitM](https://owasp.org/www-community/attacks/Man-in-the-middle_attack) | [Supply Chain Attacks](https://owasp.org/www-project-top-10/2021/A06_2021-Vulnerable_and_Outdated_Components/) | [Content Security Policy (CSP)](https://developer.mozilla.org/es/docs/Web/HTTP/CSP) | [Manifest V3 Security](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview#security)
+* **Security and Threats:** [OWASP MitM](https://owasp.org/www-community/attacks/Manipulator-in-the-middle_attack) | [Supply Chain Attacks](https://attack.mitre.org/techniques/T1195/) | [Content Security Policy (CSP)](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html) | [Manifest V3 Security](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview#security)
 * **Mathematics:** [Understanding Modulo Bias (Cryptography StackExchange)](https://crypto.stackexchange.com/questions/394/how-much-bias-is-introduced-by-the-remainder-technique)
 
 ---
