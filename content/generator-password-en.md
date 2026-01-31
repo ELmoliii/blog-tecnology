@@ -55,7 +55,7 @@ flowchart LR
     direction TB
     User2(("User")) -->|Local| Browser["Browser / Extension"]
     Browser -->|"Generation in RAM"| Memory["Memory"]
-    Memory -.->|"Automatic Cleanup"| Trash[" Data Deleted"]
+    Memory -.->|"Automatic Cleanup"| Trash["Data Deleted"]
 
 ```
 
@@ -103,7 +103,7 @@ graph LR
 This is how we mathematically guarantee the fairness of each character:
 
 ```typescript
-// ✅ Safe: If the random number falls in the bias zone, it is discarded and regenerated.
+//Safe: If the random number falls in the bias zone, it is discarded and regenerated.
 private static getSecureRandomInt(max: number): number {
     // Calculate the maximum safe limit
     const limit = Math.floor(0xFFFFFFFF / max) * max;

@@ -55,7 +55,7 @@ flowchart LR
     direction TB
     User2(("Usuario")) -->|Local| Browser["Navegador / Extensión"]
     Browser -->|"Generación en RAM"| Memory["Memoria Volátil"]
-    Memory -.->|"Limpieza Automática"| Trash["🗑️ Datos Eliminados"]
+    Memory -.->|"Limpieza Automática"| Trash["Datos Eliminados"]
 
 ```
 
@@ -103,7 +103,7 @@ graph LR
 Así es como garantizamos matemáticamente la equidad de cada carácter:
 
 ```typescript
-// ✅ Seguro: Si el número aleatorio cae en la zona de sesgo, se descarta y se regenera.
+//Seguro: Si el número aleatorio cae en la zona de sesgo, se descarta y se regenera.
 private static getSecureRandomInt(max: number): number {
     // Calculamos el límite máximo seguro
     const limit = Math.floor(0xFFFFFFFF / max) * max;
@@ -149,4 +149,4 @@ Para auditar el código o profundizar en los conceptos de seguridad mencionados,
 
 Creemos en la transparencia total. Este proyecto es de código abierto bajo licencia MIT.
 
-🔗 **[Ver Repositorio en GitHub](https://github.com/ELmoliii/generador-password)** | 📥 **[Descargar Extensión (Releases)](https://chromewebstore.google.com/detail/generador-de-contrase%C3%B1as/kmpakbpibkdnidnloeibnenimcijhclh?authuser=0&hl=es)**
+**[Ver Repositorio en GitHub](https://github.com/ELmoliii/generador-password)** |**[Descargar Extensión (ChromeStore)](https://chromewebstore.google.com/detail/generador-de-contrase%C3%B1as/kmpakbpibkdnidnloeibnenimcijhclh?authuser=0&hl=es)**
